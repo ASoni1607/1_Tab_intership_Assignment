@@ -1,0 +1,103 @@
+<!-- validation -->
+
+<!-- login -->
+
+<!-- signup -->
+
+<!-- dashboard -->
+
+<!-- facility edit, remove, update -->
+
+<!-- use mock data -->
+
+<!-- Create Read Update Delete -->
+
+<!-- Todo
+  mock data - json objects array
+    requires :- field - {
+                          _id : random integer,
+                          title : string : value - Mr. Mrs. Ms. Dr.,
+                          name :  string,
+                          email : string, validation,
+                          mobile : integer , 10 digit,
+                          dob : string,
+                          occupation : string
+                        }
+              service for CRUD operation
+              service for login validation
+
+  register page / singup page
+    requries - validation - data field
+                mock data - json objects array
+                redirects to login
+          
+  login page 
+   requires - validation - data field
+              mock data - array of JSON objects 
+              session - checking whether logged in or not
+              dashboard
+
+  dashboard 
+    requries - grid layout of users
+              use of CRUD service
+  
+  Bonus point :- Http Api Call - 
+                        localhost:4200/register - for register
+                        localhost:4200/login - for login
+                        localhost:4200/dashboard - for dashboard
+                        localhost:4200/authenticatoin - not neccessary
+                        
+                Loading spinner - Delay - use of proper loading animation 
+                
+ -->
+
+ <!-- angular approach
+  mock data - ng service - angular service
+              data model -  interface - typescript
+  
+  register page - ng component
+                - css html ts (spec.ts)
+
+  login page - ng component
+                - css html ts (spec.ts)
+  
+  dashboard page - ng component
+                - css html ts (spec.ts)      
+                
+  ng router to combine whole program
+    /register - load register component
+              - on register redirect to /api/register
+    /login - load login component 
+              - on login redirect to /api/login
+    /dashboard - load dashboard component
+              - for CRUD function use crud api
+    /api/register -using register service to register,redirect to login
+    /api/login - service to validate ,authenticate and redirect to login
+    /crud apis
+    
+    
+
+  -->
+
+<header>
+  <h1><a [routerLink]='"/"'>MockLogin</a></h1>
+  <nav>
+    <ul>
+      <li>
+        <a [routerLink]='"account"'>Login</a>
+      </li>
+      <li>
+        <a [routerLink]='"account"'>Register</a>
+      </li>
+      <li>
+        <a [routerLink]='"about"'>About</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer>
+  
+</footer>

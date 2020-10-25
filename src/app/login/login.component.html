@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="grid-col-2">
+        
+        <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
+            <div class="form-head">
+                <span>Login</span>
+            </div>
+            <div class="form-field">
+                <label for="">Email</label>
+                <input type="text" formControlName="email" required>
+                <span [class]="formError" *ngIf="loginForm.controls.email.value == ''"> Required </span>
+                <span [class]="formError" *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.value != '' "> Invalid Email </span>
+            </div>
+            <div class="form-field">
+                <label for="">Password</label>
+                <input type="password" formControlName="passwd" required>
+                <span [class]="formError" *ngIf="loginForm.controls.passwd.value == ''"> Required </span>
+                <span [class]="formError" *ngIf="!loginForm.controls.passwd.valid && loginForm.controls.passwd.value != '' "> Minimum of 8 characters </span>
+            </div>
+            <div class="form-btn">
+                <input [disabled]="!loginForm.valid" type="submit" value="Login">
+            </div>
+        </form>
+    
+    
+        <form class="register-form" [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
+            <div class="form-head">
+                <span>Register</span>
+            </div>
+            <div class="form-field">
+                <label for="">Title</label>
+                <select  formControlName="title" required>
+                    <option value="---">---</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Dr.">Dr.</option>
+                </select>
+                <span [class]="formError" *ngIf="registerForm.controls.title.value == '---'"> Required </span>
+                <span [class]="formError" *ngIf="!registerForm.controls.title.valid"> Required </span>
+            </div>
+            <div class="form-field">
+                <label for="">Name</label>
+                <input type="text" formControlName="name"  required>
+                <span [class]="formError" *ngIf="!registerForm.controls.name.valid"> Required </span>
+            </div>
+            <div class="form-field">
+                <label for="">Email</label>
+                <input type="email" formControlName="email"  required>
+                <span [class]="formError" *ngIf="registerForm.controls.email.value==''"> Required </span>
+                <span [class]="formError" *ngIf="!registerForm.controls.email.valid && registerForm.controls.email.value!='' "> Incorret Email </span>
+            </div>
+            <div class="form-field">
+                <label for="">Password</label>
+                <input type="password" formControlName="passwd"  minlength="8" required>
+                <span [class]="formError" *ngIf="registerForm.controls.passwd.value==''"> Required </span>
+                <span [class]="formError" *ngIf="!registerForm.controls.passwd.valid && registerForm.controls.passwd.value!='' "> Minimum of 8 characters </span>
+            </div>
+            <div class="form-field">
+                <label for="">Mobile</label>
+                <input type="number" formControlName="mobile" >
+                <span [class]="formError" *ngIf="registerForm.controls.mobile.value==''"> Required </span>
+                <span [class]="formError" *ngIf="!registerForm.controls.mobile.valid && registerForm.controls.mobile.value!='' "> Invalid Mobile No.
+                </span>
+            </div>
+            <div class="form-field">
+                <label for="">Date of Birth</label>
+                <input type="date" formControlName="DOB" required>
+                <span [class]="formError" *ngIf="registerForm.controls.DOB.value==''"> Required </span>
+            </div>
+            <div class="form-field">
+                <label for="">Occupation</label>
+                <input type="text" formControlName="occupation" required>
+                <span [class]="formError" *ngIf="registerForm.controls.occupation.value==''"> Required </span>
+            </div>
+            <div class="form-btn">
+                <input [disabled]="!registerForm.valid" type="submit" value="Register">
+            </div>
+        </form>
+        
+    </div>
+</div>
