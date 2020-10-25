@@ -1,9 +1,28 @@
+<header>
+    <h1><a [routerLink]='"/"'>MockLogin</a></h1>
+    <nav>
+        <ul>
+            <li>
+                <a [routerLink]='"account"'>Login</a>
+            </li>
+            <li>
+                <a [routerLink]='"account"'>Register</a>
+            </li>
+            <li>
+                <a [routerLink]='"about"'>About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="loginError" *ngIf="loginError">
+    <span>Incorrent Credentials. Try Again or register to create account.</span>
+</div>
 <div class="container">
     <div class="grid-col-2">
         
         <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
             <div class="form-head">
-                <span>Login</span>
+                <p>Login</p>
             </div>
             <div class="form-field">
                 <label for="">Email</label>
@@ -25,7 +44,7 @@
     
         <form class="register-form" [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
             <div class="form-head">
-                <span>Register</span>
+                <p>Register</p>
             </div>
             <div class="form-field">
                 <label for="">Title</label>
@@ -80,3 +99,7 @@
         
     </div>
 </div>
+
+<footer>
+    
+</footer>

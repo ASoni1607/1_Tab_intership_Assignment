@@ -18,11 +18,12 @@ export class LoginComponent implements OnInit {
   ) { }
   
   formError:any
+  loginError:boolean
 
   loginForm=new FormGroup(
     {
-      email: new FormControl('', [Validators.required, Validators.email]),
-      passwd: new FormControl('',[Validators.required, Validators.minLength(8)])
+      email: new FormControl('whardypiggin1@hatena.ne.jp', [Validators.required, Validators.email]),
+      passwd: new FormControl('MbdgZ0K8Te',[Validators.required, Validators.minLength(8)])
     }
   );
   
@@ -42,8 +43,13 @@ export class LoginComponent implements OnInit {
   loginFormSubmit(): void{
     if(this.loginForm.valid)
     {
-      this.accountService.doLogin(this.loginForm.value);
-      this.router.navigate(['/userLogin'],this.loginForm.value);
+      if(this.accountService.doLogin(this.loginForm.value)){
+        this.router.navigate(['/userLogin'],this.loginForm.value);
+        this.loginError = false;
+      }
+      else{
+        this.loginError = true;
+      }
     }
   }
 

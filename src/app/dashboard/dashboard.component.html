@@ -1,1 +1,21 @@
-<p>dashboard works!</p>
+<header>
+    <h1><a [routerLink]='"/"'>MockLogin</a></h1>
+    <nav>
+        <ul>
+            <li>
+                {{user}}
+            </li>
+            <li>
+                <a [routerLink]='"account"'>Home</a>
+            </li>
+            <li>
+                <button (click)="logout()" >Logout</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<div class="container">
+    
+</div>

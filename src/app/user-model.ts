@@ -4,7 +4,7 @@ export interface UserModel {
     name:string,
     email:string,
     passwd:string,
-    mobile:number,
+    mobile:string,
     DOB:string,
     occupation:string
 }

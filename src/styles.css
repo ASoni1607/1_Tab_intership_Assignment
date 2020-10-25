@@ -76,7 +76,7 @@ footer{
 
 nav ul{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
     gap: 0.5rem;
     align-items: center;
     justify-items: center;
@@ -98,7 +98,7 @@ nav ul{
 
 .form-head{
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     font-weight: 300;
@@ -170,6 +170,7 @@ nav ul{
     background-color: transparent;
     border: 2px solid red;
     color: red;
+    cursor: not-allowed;
 }   
 
 .form-btn input[type="submit"]:disabled:hover {
@@ -189,6 +190,25 @@ nav ul{
     border-radius: 5px;
     padding: 2px;
     font-size: small;
-    font-weight: bold;
     top: -15px;
+}
+
+.loginError{
+    position: fixed;
+    top: 75px;
+    margin: auto;
+    color: red;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.loginError span{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid red;
+    font-size: medium;
 }
