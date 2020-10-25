@@ -9,7 +9,7 @@
                 <a [routerLink]='"account"'>Register</a>
             </li>
             <li>
-                <a [routerLink]='"about"'>About</a>
+                
             </li>
         </ul>
     </nav>
@@ -39,6 +39,13 @@
             <div class="form-btn">
                 <input [disabled]="!loginForm.valid" type="submit" value="Login">
             </div>
+
+            <h4 style="margin-top:1rem;font-weight: 300;" > Credential to check login </h4>
+            <h4 style="margin-top:1rem;font-weight: 300;">UserId:-apurdy8@yahoo.com</h4>
+            <h4 style="font-weight: 300;">Password:-T1AQDdFdHxq</h4>
+            <h4 style="margin-top:1rem;font-weight: 300;">UserId:-cgailor7@tripadvisor.com</h4>
+            <h4 style="font-weight: 300;">Password:-k3qEngwz</h4>
+
         </form>
     
     
@@ -50,10 +57,12 @@
                 <label for="">Title</label>
                 <select  formControlName="title" required>
                     <option value="---">---</option>
-                    <option value="Mr.">Mr.</option>
-                    <option value="Mrs.">Mrs.</option>
-                    <option value="Ms.">Ms.</option>
-                    <option value="Dr.">Dr.</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Ms">Ms</option>
+                    <option value="Dr">Dr</option>
+                    <option value="Rev">Rev</option>
+                    <option value="Honorable">Honorable</option>
                 </select>
                 <span [class]="formError" *ngIf="registerForm.controls.title.value == '---'"> Required </span>
                 <span [class]="formError" *ngIf="!registerForm.controls.title.valid"> Required </span>
@@ -67,7 +76,10 @@
                 <label for="">Email</label>
                 <input type="email" formControlName="email"  required>
                 <span [class]="formError" *ngIf="registerForm.controls.email.value==''"> Required </span>
-                <span [class]="formError" *ngIf="!registerForm.controls.email.valid && registerForm.controls.email.value!='' "> Incorret Email </span>
+                <span [class]="formError" *ngIf="!registerForm.controls.email.valid && registerForm.controls.email.value!='' ">
+                     Incorret Email or Already Exists
+                </span>
+                
             </div>
             <div class="form-field">
                 <label for="">Password</label>
@@ -77,9 +89,10 @@
             </div>
             <div class="form-field">
                 <label for="">Mobile</label>
-                <input type="number" formControlName="mobile" >
+                <input type="number" formControlName="mobile">
                 <span [class]="formError" *ngIf="registerForm.controls.mobile.value==''"> Required </span>
-                <span [class]="formError" *ngIf="!registerForm.controls.mobile.valid && registerForm.controls.mobile.value!='' "> Invalid Mobile No.
+                <span [class]="formError" *ngIf="!registerForm.controls.mobile.valid && registerForm.controls.mobile.value!='' "> 
+                    Invalid Mobile No. or Already Exists
                 </span>
             </div>
             <div class="form-field">

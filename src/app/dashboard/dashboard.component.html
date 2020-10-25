@@ -6,16 +6,51 @@
                 {{user}}
             </li>
             <li>
-                <a [routerLink]='"account"'>Home</a>
+                <button class="icon-btn icon-btn-row" (click)="add()">
+                    Add
+                    <i class="material-icons">add</i>
+                </button>
             </li>
             <li>
-                <button (click)="logout()" >Logout</button>
+                <button class="icon-btn icon-btn-row" (click)="logout()" >
+                    Logout
+                    <i class="material-icons">exit_to_app</i>
+                </button>
             </li>
         </ul>
     </nav>
 </header>
 
+<div class="edit-form" *ngIf="editUserForm">
+<app-edit-user (closeStatus)="close($event)" [newData]="addUser" [updateData]="currentData" ></app-edit-user>
+</div>
 
 <div class="container">
-    
+    <div class="card-wrap">
+        <div *ngFor="let data of DBlist">
+            <div class="card" *ngIf="data!=undefined">
+                <span><span>{{data.title}}</span> {{data.name}}</span>
+                
+                <span>{{data.email}}</span>
+                <div>
+                    <button class="icon-btn icon-btn-col icon-btn-invert" (click)="del(data.email)">
+                        <i class="material-icons">delete</i>
+                        Delete
+                    </button>
+                    <button class="icon-btn icon-btn-col icon-btn-invert" (click)="edit(data)" >
+                        <i class="material-icons">edit</i>
+                        Edit
+                    </button>
+                </div>
+                <span>{{data.mobile}}</span>
+                <span>{{data.DOB}}</span>
+                
+                <span>{{data.occupation}}</span>
+            </div>
+        </div>
+    </div>
 </div>
+
+<footer>
+
+</footer>

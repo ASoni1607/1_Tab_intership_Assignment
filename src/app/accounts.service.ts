@@ -30,7 +30,6 @@ export class AccountsService {
   public doRegiser(obj:UserModel){
     this.userDB.adduser(obj);
     this.doLogin(obj);
-    this.userDB.listall();
   }
 
   public doLogout(){

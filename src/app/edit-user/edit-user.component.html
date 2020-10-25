@@ -1,0 +1,63 @@
+<form class="register-form" [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
+    <div class="form-head">
+        <p>Add/Edit Person</p>
+    </div>
+    <div class="form-field">
+        <label for="">Title</label>
+        <select formControlName="title" required>
+            <option value="---">---</option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Ms">Ms</option>
+            <option value="Dr">Dr</option>
+            <option value="Rev">Rev</option>
+            <option value="Honorable">Honorable</option>
+
+        </select>
+        <span [class]="formError" *ngIf="registerForm.controls.title.value == '---'"> Required </span>
+        <span [class]="formError" *ngIf="!registerForm.controls.title.valid"> Required </span>
+    </div>
+    <div class="form-field" >
+        <label for="">Name</label>
+        <input type="text" formControlName="name" required>
+        <span [class]="formError" *ngIf="!registerForm.controls.name.valid"> Required </span>
+    </div>
+    <div class="form-field">
+        <label for="">Email</label>
+        <input type="email" formControlName="email" required>
+        <span [class]="formError" *ngIf="registerForm.controls.email.value==''"> Required </span>
+        <span [class]="formError" *ngIf="!registerForm.controls.email.valid && registerForm.controls.email.value!='' ">
+            Incorret Email or already exists </span>
+    </div>
+    <div class="form-field">
+        <label for="">Password</label>
+        <input type="password" formControlName="passwd" minlength="8" required>
+        <span [class]="formError" *ngIf="registerForm.controls.passwd.value==''"> Required </span>
+        <span [class]="formError"
+            *ngIf="!registerForm.controls.passwd.valid && registerForm.controls.passwd.value!='' "> Minimum of 8
+            characters </span>
+    </div>
+    <div class="form-field">
+        <label for="">Mobile</label>
+        <input type="number" formControlName="mobile">
+        <span [class]="formError" *ngIf="registerForm.controls.mobile.value==''"> Required </span>
+        <span [class]="formError"
+            *ngIf="!registerForm.controls.mobile.valid && registerForm.controls.mobile.value!='' "> 
+            Invalid Mobile No. or Mobile already exists
+        </span>
+    </div>
+    <div class="form-field">
+        <label for="">Date of Birth</label>
+        <input type="date" formControlName="DOB" required>
+        <span [class]="formError" *ngIf="registerForm.controls.DOB.value==''"> Required </span>
+    </div>
+    <div class="form-field">
+        <label for="">Occupation</label>
+        <input type="text" formControlName="occupation" required>
+        <span [class]="formError" *ngIf="registerForm.controls.occupation.value==''"> Required </span>
+    </div>
+    <div class="form-btn">
+        <input [disabled]="!registerForm.valid" type="submit" value="Save">
+        <input type="button" value="Close" (click)="close()">
+    </div>
+</form>

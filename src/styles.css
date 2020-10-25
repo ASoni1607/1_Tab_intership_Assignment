@@ -31,6 +31,56 @@ a{
     text-decoration: none;
 }
 
+button{
+    min-width: 100px;
+    height: 40px;
+    background-color: #4A148C;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Lato';
+}
+
+.icon-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+    margin: 0.5rem;
+    font-size: small;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    height: auto;
+}
+
+.icon-btn-invert{
+    background-color: white;
+    padding: 0;
+    color: #4A148C;
+}
+
+.icon-btn-col{
+    flex-flow: column;
+}
+
+.icon-btn-row {
+    flex-flow: row;
+}
+
+.icon-btn:hover{
+    background-color: #7c43bd;
+}
+
+.icon-btn-invert:hover {
+  color: #7c43bd;
+  background-color: white;
+}
+
+header button{
+    border: 2px solid white;
+}
+
 a:visited{
     color: white;
 }
@@ -151,11 +201,14 @@ nav ul{
 
 .form-btn {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-auto-flow: row;
   justify-content: center;
+  gap: 1rem;
 }
 
-.form-btn input[type="submit"]{
+.form-btn input[type="submit"],
+.form-btn input[type="button"] {
     width: 5rem;
     height: 3rem;
     background-color: var(--primary);
@@ -211,4 +264,86 @@ nav ul{
     padding: 1rem;
     border: 1px solid red;
     font-size: medium;
+}
+
+.card-wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.card{
+    display: grid;
+    
+    grid-template-columns: 150px 1fr;
+    gap: 0.5rem;
+    border: 1px solid var(--primary);
+    padding: 1rem;
+    justify-items: right;
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0 var(--primary);
+}
+
+
+.card span:first-child{
+    font-size: large;
+    color: var(--primary);
+    justify-self: start;
+    align-self: center;
+    grid-row: 1  /  span 2;
+    grid-column: 1 ;
+}
+
+.card span {
+  grid-column: 2;
+}
+
+.card div{
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    grid-row: 3 / span 2;
+    grid-column: 1;
+}
+
+.edit-form{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.90);
+}
+
+.edit-form form{
+    width: 60%;
+    margin: auto;
+}
+
+@media screen and (max-width: 1076px) {
+  .card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card-wrap{
+      grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media screen and (max-width: 976px) {
+  .grid-col-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .login-form {
+    border-bottom: 0.5px solid var(--primary);
+    border-right: none;
+  }
+
 }

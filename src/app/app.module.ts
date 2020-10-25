@@ -9,13 +9,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FakeloadingComponent } from './fakeloading/fakeloading.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    FakeloadingComponent
+    FakeloadingComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
